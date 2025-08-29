@@ -50,22 +50,7 @@ app.add_middleware(
     allow_origins=(settings.CORS_ORIGINS.split(",") if settings.CORS_ORIGINS else ["*"]),
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-# ===== Schemas (Pydantic) =====
-class LoginIn(BaseModel):
-    email: str
-    password: str
-
-
-class CategoryIn(BaseModel):
-    name: str
-    is_active: bool = True
-
-
-class MessageIn(BaseModel):
-    category_id: int
+    
     title: str
     body: str
     is_active: bool = True
