@@ -11,7 +11,7 @@ function PriceNotice({ cfg }){
     <div className="card">
       <div><span className="badge">Preço</span></div>
       <h2>Valor fixo: R$ {price}</h2>
-      <p>Válido para mensagens na <b>{cfg.city_name}</b>, chácaras e sítios locais.</p>
+      <p>Válido para mensagens na <b>{cfg.city_name}</b>.</p>
       <p>Para <b>outras cidades</b>, consulte via WhatsApp ou ligação.</p>
       <div style={{display:'flex', gap:8, marginTop:8}}>
         <a className="secondary button" href={whatsUrl} target="_blank" rel="noreferrer"><button>WhatsApp</button></a>
