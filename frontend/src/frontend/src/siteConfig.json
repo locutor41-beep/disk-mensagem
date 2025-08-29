@@ -1,0 +1,12 @@
+{
+  "base_price_cents": 7000,
+  "city_name": "Sua Cidade",
+  "phone_display": "(18) 99705-3664",
+  "whats_e164": "+5518997053664",
+
+  "whatsapp_consulta_text": "Olá! Quero consultar mensagem para outra cidade.",
+  "price_badge_label": "Preço",
+  "price_title_prefix": "Valor fixo: R$",
+  "notice_line_1_prefix": "Válido para mensagens em",
+  "notice_line_2": "Para chácaras, sítios e outras cidades, consulte via WhatsApp ou ligação."
+}
