@@ -1,9 +1,13 @@
 {
+  "version": 2,
+  "builds": [
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/node"
+    }
+  ],
   "framework": "vite",
-  "buildCommand": "npm run vercel-build",
-  "installCommand": "npm ci || npm install",
+  "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
-  ]
+  "installCommand": "npm install"
 }
