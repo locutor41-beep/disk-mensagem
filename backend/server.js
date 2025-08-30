@@ -1,11 +1,10 @@
-// backend/server.js
-import express from "express";
-
+const express = require("express");
 const app = express();
+
 const PORT = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
-  res.send("API Disk Mensagem ok ✅");
+  res.send("Servidor rodando 🚀");
 });
 
 app.listen(PORT, () => {
