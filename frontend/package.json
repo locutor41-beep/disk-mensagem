@@ -3,9 +3,11 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "engines": { "node": ">=18" },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "vercel-build": "vite build",
     "preview": "vite preview",
     "build:pwa": "vite build",
     "cap:init": "npx cap init",
