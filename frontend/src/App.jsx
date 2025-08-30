@@ -1,15 +1,11 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Admin from "./Admin.jsx";
-import AdminMessages from "./AdminMessages.jsx";
-import AdminOrders from "./AdminOrders.jsx";
 import useAppConfig from "./useAppConfig.js";
 
-function Home() {
+export default function App() {
   const cfg = useAppConfig();
+
   return (
     <div style={{ textAlign: "center", padding: "40px" }}>
-      {/* logo */}
       <img
         src="https://raw.githubusercontent.com/locutor41-beep/disk-mensagem/main/frontend/public/logo.png"
         alt="Logo"
@@ -21,11 +17,10 @@ function Home() {
       <h1 style={{ marginTop: 16 }}>Disk Mensagem</h1>
       <p>Bem-vindo ao seu aplicativo 🚀</p>
 
-      {/* menu de navegação */}
       <div style={{ marginTop: 24, display: "flex", gap: 12, justifyContent: "center" }}>
-        <Link to="/admin" className="btn">Painel</Link>
-        <Link to="/admin/messages" className="btn">Mensagens</Link>
-        <Link to="/admin/orders" className="btn">Pedidos</Link>
+        <a href="/admin" className="btn">Painel</a>
+        <a href="/admin/messages" className="btn">Mensagens</a>
+        <a href="/admin/orders" className="btn">Pedidos</a>
       </div>
 
       <style>{`
@@ -40,27 +35,10 @@ function Home() {
         .btn:hover { background: #374151; }
       `}</style>
 
-      {/* informações dinâmicas (opcional) */}
       <div style={{ marginTop: 28, color: "#444" }}>
         <div>WhatsApp (E.164): <b>{cfg.whats_e164}</b></div>
         <div>Telefone para exibição: <b>{cfg.phone_display}</b></div>
       </div>
     </div>
-  );
-}
-
-export default function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        {/* rotas do admin */}
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/admin/messages" element={<AdminMessages />} />
-        <Route path="/admin/orders" element={<AdminOrders />} />
-        {/* fallback: qualquer outra rota → Home */}
-        <Route path="*" element={<Home />} />
-      </Routes>
-    </BrowserRouter>
   );
 }
