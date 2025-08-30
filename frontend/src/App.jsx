@@ -25,19 +25,22 @@ export default function App() {
           <Route path="/admin" element={<Admin />} />
           <Route path="/admin/messages" element={<AdminMessages />} />
           <Route path="/admin/orders" element={<AdminOrders />} />
-          {/* qualquer rota desconhecida volta pra home */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
+
+      <footer className="footer">
+        <small>© {new Date().getFullYear()} Disk Mensagem</small>
+      </footer>
     </div>
   );
 }
 
 function Home() {
   return (
-    <section style={{ textAlign: "center", padding: "2rem" }}>
+    <section className="card">
       <h2>Bem-vindo ao seu aplicativo 🚀</h2>
-      <p>Use o menu para acessar o Painel Admin.</p>
+      <p>Use o menu acima para acessar o painel de administração.</p>
     </section>
   );
 }
