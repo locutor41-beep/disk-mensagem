@@ -22,35 +22,21 @@ export default function AdminOrders() {
 
   if (loading) return <p>⏳ Carregando pedidos...</p>;
 
+  if (!orders.length) return <p>Nenhum pedido encontrado.</p>;
+
   return (
     <div>
-      <h2>📋 Pedidos</h2>
-      {orders.length === 0 ? (
-        <p>Nenhum pedido encontrado.</p>
-      ) : (
-        <table border="1" cellPadding="8" style={{ borderCollapse: "collapse", width: "100%" }}>
-          <thead>
-            <tr style={{ background: "#f2f2f2" }}>
-              <th>ID</th>
-              <th>Cliente</th>
-              <th>Categoria</th>
-              <th>Mensagem</th>
-              <th>Data</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders.map((order) => (
-              <tr key={order.id}>
-                <td>{order.id}</td>
-                <td>{order.nome || "—"}</td>
-                <td>{order.categoria}</td>
-                <td>{order.mensagem}</td>
-                <td>{new Date(order.data).toLocaleString()}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+      <h2>📦 Lista de Pedidos</h2>
+      <ul>
+        {orders.map((order, idx) => (
+          <li key={idx}>
+            <strong>Cliente:</strong> {order.nome} <br />
+            <strong>Mensagem:</strong> {order.mensagem} <br />
+            <strong>Data:</strong> {order.data} <br />
+            <hr />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
