@@ -22,33 +22,19 @@ export default function AdminMessages() {
 
   if (loading) return <p>⏳ Carregando mensagens...</p>;
 
+  if (!messages.length) return <p>Nenhuma mensagem encontrada.</p>;
+
   return (
     <div>
-      <h2>📩 Mensagens Recebidas</h2>
-      {messages.length === 0 ? (
-        <p>Nenhuma mensagem encontrada.</p>
-      ) : (
-        <table border="1" cellPadding="8" style={{ borderCollapse: "collapse", width: "100%" }}>
-          <thead>
-            <tr style={{ background: "#f2f2f2" }}>
-              <th>ID</th>
-              <th>Cliente</th>
-              <th>Mensagem</th>
-              <th>Data</th>
-            </tr>
-          </thead>
-          <tbody>
-            {messages.map((msg) => (
-              <tr key={msg.id}>
-                <td>{msg.id}</td>
-                <td>{msg.nome || "—"}</td>
-                <td>{msg.texto}</td>
-                <td>{new Date(msg.data).toLocaleString()}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+      <h2>📩 Mensagens recebidas</h2>
+      <ul>
+        {messages.map((msg, idx) => (
+          <li key={idx}>
+            <strong>{msg.nome}</strong> - {msg.texto} <br />
+            <small>{msg.data}</small>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
