@@ -2,6 +2,9 @@
   "name": "disk-mensagem-frontend",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
