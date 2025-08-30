@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import siteCfg from "./siteConfig.json"; // textos/valores locais e fáceis de editar
+import AdminMessages from "./AdminMessages.jsx"; // módulo de Categorias & Mensagens
+import AdminOrders from "./AdminOrders.jsx";     // módulo de Pedidos/Agenda PDF
 
 const API = import.meta.env.VITE_API_URL?.replace(/\/+$/, "");
 
@@ -187,22 +189,6 @@ function Settings({ token }) {
       </div>
 
       {msg && <p style={{ marginTop: 8 }}>{msg}</p>}
-
-      <hr style={{ margin: "16px 0" }} />
-
-      <details>
-        <summary>Textos do JSON (somente front-end)</summary>
-        <div style={{ fontSize: 14, opacity: 0.9 }}>
-          <p><b>Badge:</b> {siteCfg.price_badge_label}</p>
-          <p><b>Título (prefixo):</b> {siteCfg.price_title_prefix}</p>
-          <p><b>Linha 1 (prefixo):</b> {siteCfg.notice_line_1_prefix}</p>
-          <p><b>Linha 2:</b> {siteCfg.notice_line_2}</p>
-          <p><b>Mensagem padrão WhatsApp:</b> {siteCfg.whatsapp_consulta_text}</p>
-          <p style={{ marginTop: 8 }}>
-            Para alterar, edite <code>frontend/src/siteConfig.json</code> no GitHub.
-          </p>
-        </div>
-      </details>
     </div>
   );
 }
@@ -236,8 +222,10 @@ export default function Admin() {
         </button>
       </header>
 
+      {/* Seções do admin */}
       <Settings token={token} />
-      {/* Aqui você pode adicionar outras seções do admin (categorias, mensagens, pedidos, etc.) */}
+      <AdminMessages token={token} />
+      <AdminOrders token={token} />
     </div>
   );
 }
